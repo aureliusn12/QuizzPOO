@@ -4,5 +4,7 @@ public class app {
         moto.alugar();
         moto.calcularValorAluguel();
         moto.devolver();
+
+        
     }
 }
