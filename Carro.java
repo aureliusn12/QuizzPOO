@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class Carro extends Veiculo {
     private int quantidadePortas;
@@ -9,23 +8,21 @@ public class Carro extends Veiculo {
     }
 
     @Override
-    public void calcularValorAluguel(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Insira a quantidade de dias que o veículo será alugado: ");
-        int dias = scanner.nextInt();
-        scanner.close();
-        
-        double valor = 100*dias + 10*quantidadePortas;
-
-        System.out.println("Marca: " + getMarca());
-        System.out.println("Modelo: " + getModelo());
-        System.out.println("Ano: " + getAno());
-        System.out.println("Valor aluguel R$: " + valor);
+    public double calcularValorAluguel(int dias){
+    return dias * 100 + quantidadePortas * 10;
     }
+
     public int getQuantidadePortas() {
         return quantidadePortas;
     }
     public void setQuantidadePortas(int quantidadePortas) {
         this.quantidadePortas = quantidadePortas;
     }
+
+    @Override
+    public String toString() {
+        return "[ Quantidade de portas: " + getQuantidadePortas() + " || Ano: " + getAno() + " || Marca: "
+                + getMarca() + " || Modelo: " + getModelo() + " ]";
+    }    
+    
 }

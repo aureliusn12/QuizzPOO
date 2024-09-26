@@ -12,14 +12,26 @@ public abstract class Veiculo {
     }
 
     public void alugar(){
-        this.alugado = true;
+        if (alugado) {
+            System.out.println("O veículo já está alugado.");
+        } else {
+            alugado = true;
+            System.out.println("O veículo foi alugado com sucesso.");
+        }
     }
-
+    public boolean estaAlugado(){
+        return alugado;
+    }
     public void devolver(){
-        this.alugado = false;
+        if (!alugado) {
+            System.out.println("O veículo ainda está disponível.");
+        } else {
+            alugado = false;
+            System.out.println("O veículo foi devolvido com sucesso.");
+        }
     }
 
-    public abstract void calcularValorAluguel();
+    public abstract double calcularValorAluguel(int dias);
     
     public int getAno() {
         return ano;
@@ -38,11 +50,5 @@ public abstract class Veiculo {
     }
     public void setModelo(String modelo) {
         this.modelo = modelo;
-    }
-    public void setAlugado(boolean alugado) {
-        this.alugado = alugado;
-    }
-    public boolean getAlugado(){
-        return alugado;
     }
 }

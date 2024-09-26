@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Caminhao extends Veiculo{
     private double capacidadeCarga; //toneladas
     
@@ -9,19 +7,8 @@ public class Caminhao extends Veiculo{
     }
     
     @Override
-    public void calcularValorAluguel(){
-         Scanner scanner = new Scanner(System.in);
-        System.out.println("Insira a quantidade de dias que o veículo será alugado: ");
-        int dias = scanner.nextInt();
-        scanner.close();
-        
-        double valor = 200*dias + 50*capacidadeCarga;
-
-        System.out.println("Marca: " + getMarca());
-        System.out.println("Modelo: " + getModelo());
-        System.out.println("Ano: " + getAno());
-        System.out.println("Valor aluguel R$: " + valor);
-        
+    public double calcularValorAluguel(int dias){
+        return dias * 200 + capacidadeCarga * 50;
     }
     public double getCapacidadeCarga() {
         return capacidadeCarga;
@@ -29,4 +16,11 @@ public class Caminhao extends Veiculo{
     public void setCapacidadeCarga(double capacidadeCarga) {
         this.capacidadeCarga = capacidadeCarga;
     }
+
+    @Override
+    public String toString() {
+        return "[ Capacidade de Carga: " + getCapacidadeCarga() + " || Ano: " + getAno() + " || Marca: "
+                + getMarca() + " || Modelo: " + getModelo() + " ]";
+    }
+    
 }

@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Moto extends Veiculo {
     private int cilindradas;
     
@@ -9,19 +7,8 @@ public class Moto extends Veiculo {
     }
 
     @Override
-    public void calcularValorAluguel(){
-         Scanner scanner = new Scanner(System.in);
-        System.out.println("Insira a quantidade de dias que o veículo será alugado: ");
-        int dias = scanner.nextInt();
-        scanner.close();
-        
-        double valor = 50*dias + (1.0/10)*cilindradas;
-
-        System.out.println("Marca: " + getMarca());
-        System.out.println("Modelo: " + getModelo());
-        System.out.println("Ano: " + getAno());
-        System.out.println("Valor aluguel R$: " + valor);
-
+    public double calcularValorAluguel(int dias){
+        return dias * 50 + cilindradas * 0.10;
     }
 
     public int getCilindradas() {
@@ -30,4 +17,11 @@ public class Moto extends Veiculo {
     public void setCilindradas(int cilindradas) {
         this.cilindradas = cilindradas;
     }
+
+    @Override
+    public String toString() {
+        return "[ Cilindradas: " + getCilindradas() + " || Ano: " + getAno() + " || Marca: " + getMarca()
+                + " || Modelo: " + getModelo() + " ]";
+    }
+    
 }
